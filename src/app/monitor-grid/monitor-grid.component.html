@@ -1,0 +1,37 @@
+<div class="table-responsive" style="font-size: small; font-weight: lighter; margin-top: 20px;">
+    <table class="table table-hover">
+        <thead style="background-color: darkgray;">
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Tecnologia</th>
+                <th scope="col">Lag</th>
+                <th scope="col">Terminal</th>
+                <th scope="col">Operadora</th>
+                <th scope="col">Infolog</th>
+                <th scope="col">Lidos</th>
+                <th scope="col">A processar</th>
+                <th scope="col">Processando</th>
+                <th scope="col">Total</th>
+                <th scope="col">Dedicados</th>
+                <th scope="col">PV. Ativos</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let tecnologia of tecnologias">
+                <td>{{tecnologia.id}}</td>
+                <td>{{tecnologia.tecnologia}}</td>
+                <td>{{tecnologia.lag}}</td>
+                <td>{{tecnologia.terminal}}</td>
+                <td>{{tecnologia.operadora}}</td>
+                <td>{{tecnologia.infolog}}</td>
+                <td>{{tecnologia.lidos}}</td>
+                <td>{{tecnologia.processar}}</td>
+                <td>{{tecnologia.processando}}</td>
+                <td>{{tecnologia.total}}</td>
+                <td>{{tecnologia.dedicados}}</td>
+                <td>{{tecnologia.pvAtivos}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

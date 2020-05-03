@@ -1,0 +1,24 @@
+<div class="container">
+    <app-monitor-navbar></app-monitor-navbar>
+
+    <div class="form-check" style="font-size: small; margin-top: 20px;">
+        <div>
+            <input class="form-check-input position-static" type="checkbox" id="alertaSonoro"> Desativar Alerta Sonoro
+        </div>
+
+        <div>
+            <input class="form-check-input position-static" type="checkbox" id="atualizaçãoAutomatica"> Desativar Atualização Automática
+        </div>
+
+        <div>
+            <input class="form-check-input" type="checkbox" ([ngModel])="exibeIndicador" (change)="getIndicador($event)"> Exibir Indicadores
+        </div>
+
+        <div [hidden]="!exibeIndicador">
+            <app-monitor-indicador></app-monitor-indicador>
+        </div>
+    </div>
+
+    <app-monitor-grid></app-monitor-grid>
+
+</div>
