@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-monitor-principal',
@@ -8,9 +8,11 @@ import { Component, OnInit } from '@angular/core';
 export class MonitorPrincipalComponent implements OnInit {
   exibeIndicador = true;
 
+  @Input() provedorFiltro: string;
 
+  constructor() {
 
-  constructor() { }
+  }
 
   ngOnInit(): void {
   }
@@ -20,4 +22,15 @@ export class MonitorPrincipalComponent implements OnInit {
     console.log(`Exibir Indicadores ${this.exibeIndicador}`);
 
   }
+  onMudouValor(evento: any){
+    this.provedorFiltro = evento.provedorNovoValor;
+    console.log('Monitor-Principal- provedorFiltroInput '+ this.provedorFiltro);
+
+  }
+
+  onMudouValorNulo(evento: any){
+    console.log("LIMPAR PROPRIEDADES " +  evento.provedorValorNulo);
+    this.provedorFiltro = evento.provedorValorNulo;
+  }
+
 }

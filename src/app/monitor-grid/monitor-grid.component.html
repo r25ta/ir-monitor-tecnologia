@@ -17,9 +17,9 @@
 
             </tr>
         </thead>
-        <tbody>
-            <tr *ngFor="let tecnologia of tecnologias">
-                <td>{{tecnologia.id}}</td>
+
+        <tbody *ngIf="tecnologiaLista!=null; else naoEncontrado">
+            <tr *ngFor="let tecnologia of tecnologiaLista">
                 <td>{{tecnologia.tecnologia}}</td>
                 <td>{{tecnologia.lag}}</td>
                 <td>{{tecnologia.terminal}}</td>
@@ -33,5 +33,18 @@
                 <td>{{tecnologia.pvAtivos}}</td>
             </tr>
         </tbody>
+
+
+        <ng-template #naoEncontrado>
+            <tr>
+                <td colspan="12" align="center">
+                    <div class="alert alert-warning" role="alert">
+                        <a href="#" class="alert-link" (click)="onSubmit()">Provedor não encontrado! Recarregar Grid
+                            <img src="../../assets/images/baseline_autorenew_black_18dp.png">
+                        </a>
+                    </div>
+                </td>
+            </tr>
+        </ng-template>
     </table>
 </div>

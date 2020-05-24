@@ -1,7 +1,8 @@
 <nav class="navbar" style="background-color: darkgray;">
     <span style="font-size: larger; font-weight: bold;">Monitor de Tecnologias</span>
-    <form class="form-inline">
-        <input class="form-control mr-sm-2" type="search" placeholder="Pesquisar" aria-label="Search">
-        <button class="btn btn-success my-2 my-sm-0" type="submit">Pesquisar</button>
+    <form class="form-inline" (ngSubmit)="onSubmit($event)">
+        <input class="form-control" name="inputPesquisar" type="text" [(ngModel)]="filtroProvedor">
+        <button class=" btn btn-success my-2 my-sm-0">Pesquisar</button>
+
     </form>
 </nav>

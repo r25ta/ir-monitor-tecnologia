@@ -1,7 +1,8 @@
+import { NgModule } from '@angular/core';
+
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 
-import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -10,6 +11,7 @@ import { MonitorGridComponent } from './monitor-grid/monitor-grid.component';
 import { MonitorIndicadorComponent } from './monitor-indicador/monitor-indicador.component';
 import { MonitorLegendaComponent } from './monitor-legenda/monitor-legenda.component';
 import { MonitorNavbarComponent } from './monitor-navbar/monitor-navbar.component';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 @NgModule({
   declarations: [
@@ -23,7 +25,8 @@ import { MonitorNavbarComponent } from './monitor-navbar/monitor-navbar.componen
   imports: [
     BrowserModule,
     FormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    Ng2SearchPipeModule
 
   ],
   providers: [],

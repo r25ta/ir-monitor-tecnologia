@@ -1,6 +1,5 @@
 <div class="container">
-    <app-monitor-navbar></app-monitor-navbar>
-
+    <app-monitor-navbar [filtroProvedor]="provedorFiltro" (mudouValor)="onMudouValor($event)"></app-monitor-navbar>
     <div class="form-check" style="font-size: small; margin-top: 20px;">
         <div>
             <input class="form-check-input position-static" type="checkbox" id="alertaSonoro"> Desativar Alerta Sonoro
@@ -19,6 +18,6 @@
         </div>
     </div>
 
-    <app-monitor-grid></app-monitor-grid>
+    <app-monitor-grid [tecnologia]="provedorFiltro" (mudouValorNulo)="onMudouValorNulo($event)"> </app-monitor-grid>
 
 </div>

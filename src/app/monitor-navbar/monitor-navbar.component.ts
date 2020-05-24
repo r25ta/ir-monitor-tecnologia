@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-monitor-navbar',
@@ -7,9 +7,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MonitorNavbarComponent implements OnInit {
 
+  @Input() filtroProvedor: string = null;
+
+  @Output() mudouValor = new EventEmitter();
+
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+
+  onSubmit(event: any){
+    this.filtroProvedor = event.target.inputPesquisar.value;
+    console.log("Filtro inserido " + this.filtroProvedor);
+    this.mudouValor.emit({provedorNovoValor: this.filtroProvedor});
+
   }
 
 }
