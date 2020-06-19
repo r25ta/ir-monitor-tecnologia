@@ -1,4 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { MonitorLegendaComponent } from '../monitor-legenda/monitor-legenda.component';
 
 @Component({
   selector: 'app-monitor-principal',
@@ -6,14 +8,17 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./monitor-principal.component.css']
 })
 export class MonitorPrincipalComponent implements OnInit {
-  exibeIndicador = true;
+  exibeIndicador = false;
 
   @Input() provedorFiltro: string;
 
-  constructor() {
+  constructor(public dialog: MatDialog) {
 
   }
 
+  openLegenda(){
+    this.dialog.open(MonitorLegendaComponent);
+  }
   ngOnInit(): void {
   }
 

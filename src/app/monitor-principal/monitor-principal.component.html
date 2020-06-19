@@ -1,23 +1,31 @@
-<div class="container">
-    <app-monitor-navbar [filtroProvedor]="provedorFiltro" (mudouValor)="onMudouValor($event)"></app-monitor-navbar>
-    <div class="form-check" style="font-size: small; margin-top: 20px;">
-        <div>
-            <input class="form-check-input position-static" type="checkbox" id="alertaSonoro"> Desativar Alerta Sonoro
+<mat-grid-list cols="4" rowHeight="90px">
+    <mat-grid-tile-header>
+        <app-monitor-navbar [filtroProvedor]="provedorFiltro" (mudouValor)="onMudouValor($event)"></app-monitor-navbar>
+    </mat-grid-tile-header>
+    <mat-grid-tile colspan="2" rowspan="2">
+        <div class="form-check" style="font-size: small;   text-align: left; width: 99%">
+            <div style="margin-top: 30px;">
+                <input class="form-check-input position-static" type="checkbox" id="alertaSonoro"> Desativar Alerta Sonoro
+            </div>
+
+            <div style="margin-top: 10px;">
+                <input class="form-check-input position-static" type="checkbox" id="atualizaçãoAutomatica"> Desativar Atualização Automática
+            </div>
+
+            <div style="margin-top: 10px;">
+                <input class="form-check-input" type="checkbox" ([ngModel])="exibeIndicador" (change)="getIndicador($event)"> Exibir Indicadores
+            </div>
         </div>
-
-        <div>
-            <input class="form-check-input position-static" type="checkbox" id="atualizaçãoAutomatica"> Desativar Atualização Automática
+    </mat-grid-tile>
+    <mat-grid-tile colspan="2" rowspan="2">
+        <div style="margin-top: 0; display: inline-block; text-align: right; width: 97%">
+            <a mat-mini-fab color="primary" routerLink="." title="Ver Legenda" (click)="openLegenda()">
+                <mat-icon title="Ver Legenda">legend_toggle</mat-icon>
+            </a>
         </div>
-
-        <div>
-            <input class="form-check-input" type="checkbox" ([ngModel])="exibeIndicador" (change)="getIndicador($event)"> Exibir Indicadores
-        </div>
-
-        <div [hidden]="!exibeIndicador">
-            <app-monitor-indicador></app-monitor-indicador>
-        </div>
-    </div>
-
-    <app-monitor-grid [tecnologia]="provedorFiltro" (mudouValorNulo)="onMudouValorNulo($event)"> </app-monitor-grid>
-
+    </mat-grid-tile>
+</mat-grid-list>
+<div [hidden]="!exibeIndicador">
+    <app-monitor-indicador></app-monitor-indicador>
 </div>
+<app-monitor-grid [tecnologia]="provedorFiltro" (mudouValorNulo)="onMudouValorNulo($event)"> </app-monitor-grid>
