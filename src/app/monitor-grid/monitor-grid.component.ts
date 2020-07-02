@@ -35,7 +35,7 @@ export class MonitorGridComponent implements OnInit , OnChanges{
   }
 
     carregarGrid(provedor:string){
-      console.log("provedor =>" + provedor);
+//      console.log("provedor =>" + provedor);
 
 
       if((provedor!=null)&&(provedor.trim()!="")){
@@ -74,7 +74,7 @@ export class MonitorGridComponent implements OnInit , OnChanges{
 
         this.tecnologiaLista = this.filterItens(lista,provedor);
 
-        console.log("retorno filter => " + this.tecnologiaLista.length);
+//        console.log("retorno filter => " + this.tecnologiaLista.length);
 
         if(this.tecnologiaLista.length<=0){
           return this.tecnologiaLista=null;
@@ -94,10 +94,9 @@ export class MonitorGridComponent implements OnInit , OnChanges{
       valorAtual = changes.tecnologia.currentValue;
       valorAnterior = changes.tecnologia.previousValue;
 
-      if((valorAtual!=null) && (valorAtual.trim()!="")){
         this.carregarGrid(valorAtual);
-      }
-//      console.log("Current =>" + valorAtual);
+
+        //      console.log("Current =>" + valorAtual);
 //      console.log("Previous =>" + valorAnterior);
     }
 

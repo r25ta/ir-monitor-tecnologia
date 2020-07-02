@@ -1,31 +1,73 @@
+<app-monitor-navbar [filtroProvedor]="provedorFiltro" (mudouValor)="onMudouValor($event)"></app-monitor-navbar>
 <mat-grid-list cols="4" rowHeight="90px">
-    <mat-grid-tile-header>
-        <app-monitor-navbar [filtroProvedor]="provedorFiltro" (mudouValor)="onMudouValor($event)"></app-monitor-navbar>
-    </mat-grid-tile-header>
-    <mat-grid-tile colspan="2" rowspan="2">
+    <mat-grid-tile colspan="2" rowspan="1">
         <div class="form-check" style="font-size: small;   text-align: left; width: 99%">
-            <div style="margin-top: 30px;">
-                <input class="form-check-input position-static" type="checkbox" id="alertaSonoro"> Desativar Alerta Sonoro
+            <div style="margin-top: 10px;">
+                <mat-slide-toggle color="primary" [(ngModel)]="chkAlertaSonoro" (change)="getAlertaSonoro($event)">
+                    <span *ngIf="chkAlertaSonoro; else desligarAlertaSonoro">
+                    <mat-icon title="Alerta Sonoro">
+                        volume_up
+                    </mat-icon>
+                    </span>
+                    <ng-template #desligarAlertaSonoro>
+                        <mat-icon title="Alerta Sonoro Desativado">
+                            volume_off
+                        </mat-icon>
+                    </ng-template>
+                </mat-slide-toggle>
             </div>
 
-            <div style="margin-top: 10px;">
-                <input class="form-check-input position-static" type="checkbox" id="atualizaçãoAutomatica"> Desativar Atualização Automática
-            </div>
+            <div style="margin-top: 5px;">
+                <mat-slide-toggle color="primary" [(ngModel)]="chkAtualizarMonitor" (change)="getAtualizarMonitor($event)">
+                    <span *ngIf="chkAtualizarMonitor; else pararAtualizacao">
+                      <mat-icon title="Atualização Automática">
+                          timer
+                      </mat-icon>
+                    </span>
+                    <ng-template #pararAtualizacao>
+                        <mat-icon title="Atualização Automática Desativada">
+                            timer_off
+                        </mat-icon>
+                    </ng-template>
+                </mat-slide-toggle>
 
-            <div style="margin-top: 10px;">
-                <input class="form-check-input" type="checkbox" ([ngModel])="exibeIndicador" (change)="getIndicador($event)"> Exibir Indicadores
+            </div>
+            <div style="margin-top: 5px;">
+                <mat-slide-toggle color="primary" [(ngModel)]="chkExibeIndicador" (change)="getIndicador($event)">
+                    <span *ngIf="chkExibeIndicador; else exibirIndicadores">
+                    <mat-icon title="Indicadores">
+                      subtitles
+                  </mat-icon>
+                </span>
+                    <ng-template #exibirIndicadores>
+                        <mat-icon title="Indicadores Desativado">
+                            subtitles_off
+                        </mat-icon>
+                    </ng-template>
+                </mat-slide-toggle>
+
             </div>
         </div>
     </mat-grid-tile>
-    <mat-grid-tile colspan="2" rowspan="2">
-        <div style="margin-top: 0; display: inline-block; text-align: right; width: 97%">
-            <a mat-mini-fab color="primary" routerLink="." title="Ver Legenda" (click)="openLegenda()">
-                <mat-icon title="Ver Legenda">legend_toggle</mat-icon>
-            </a>
+    <mat-grid-tile colspan="2" rowspan="1">
+        <div style=" display: inline-block; text-align: right; width: 97%">
+            <div style="margin-top: 0px;">
+                <a mat-mini-fab color="primary" routerLink="." title="Ver Legenda" (click)="openLegenda()">
+                    <mat-icon title="Ver Legenda">legend_toggle</mat-icon>
+                </a>
+            </div>
+            <div style="margin-top: 5px; font-size: x-small; ">
+                <span>
+                  Ultima atualização:
+                </span>
+                <span style="font-weight: bold; font-style: oblique; color:blue;">DD/MM/YYYY HH24:MI:SS</span>
+            </div>
         </div>
     </mat-grid-tile>
+
+
 </mat-grid-list>
-<div [hidden]="!exibeIndicador">
+<div [hidden]="!chkExibeIndicador">
     <app-monitor-indicador></app-monitor-indicador>
 </div>
 <app-monitor-grid [tecnologia]="provedorFiltro" (mudouValorNulo)="onMudouValorNulo($event)"> </app-monitor-grid>
