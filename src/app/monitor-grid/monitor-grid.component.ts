@@ -1,4 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter, OnChanges, SimpleChanges } from '@angular/core';
+import { MonitorModel } from '../model/monitor-model';
+import { MonitorService } from '../service/monitor.service';
+
 import { Tecnologia } from '../tecnologia';
 
 @Component({
@@ -9,6 +12,8 @@ import { Tecnologia } from '../tecnologia';
 
 export class MonitorGridComponent implements OnInit , OnChanges{
 
+  monitor = {} as MonitorModel;
+  monitores: MonitorModel[];
 
   @Input() filtroProvedor: string = null;
   @Output() mudouValorNulo = new EventEmitter();
@@ -26,12 +31,16 @@ export class MonitorGridComponent implements OnInit , OnChanges{
 
   tecnologiaLista: Array<Tecnologia>;
 
-  constructor() {
+  constructor(private monitorService : MonitorService) {
 
-   }
+  }
 
   ngOnInit(): void {
     this.carregarGrid(this.filtroProvedor);
+    this.monitorService.getMonitor();
+
+
+
   }
 
     carregarGrid(provedor:string){
@@ -46,6 +55,12 @@ export class MonitorGridComponent implements OnInit , OnChanges{
 
       }
 
+    }
+
+    getProvedores(){
+      this.monitorService.getMonitor().subscribe((mnt:MonitorModel[]) => {
+        this.monitores = mnt;
+      });
     }
     getAllProvedores(){
       return this.tecnologiaLista =  [ new Tecnologia(1,'Autotrac','00:01','1001','03/05/2020 18:00','03/05/2020 18:05','1.000.000','500.000','200.000','100.000','10.000','5.000'),
