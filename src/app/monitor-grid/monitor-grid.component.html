@@ -1,4 +1,4 @@
-<div class="table-responsive" style="font-size: small; font-weight: lighter; margin-top: 20px;">
+<div class="table-responsive" style="font-size: small; font-weight: lighter; margin-top: 20px; width: 100%;">
     <table class="table table-hover">
         <thead style="background-color: darkgray;">
             <tr>
@@ -21,20 +21,19 @@
         <tbody *ngIf="tecnologiaLista!=null; else naoEncontrado">
             <tr *ngFor="let tecnologia of tecnologiaLista">
                 <td><img style="width: 15px; height: 15px;" src="../../assets/images/baseline_volume_up_black_18dp.png"></td>
-                <td>{{tecnologia.tecnologia}}</td>
-                <td>{{tecnologia.lag}}</td>
-                <td>{{tecnologia.terminal}}</td>
-                <td>{{tecnologia.operadora}}</td>
-                <td>{{tecnologia.infolog}}</td>
-                <td>{{tecnologia.lidos}}</td>
-                <td>{{tecnologia.processar}}</td>
-                <td>{{tecnologia.processando}}</td>
+                <td>{{tecnologia.provedor}}</td>
+                <td>{{tecnologia.diffFormatado}}</td>
+                <td>{{tecnologia.dhrEvento}}</td>
+                <td>{{tecnologia.dhrProcFornecedor}}</td>
+                <td>{{tecnologia.dhrProcPamcary}}</td>
+                <td>{{tecnologia.qtdeProcessado}}</td>
+                <td>{{tecnologia.qtdeAProcessar}}</td>
+                <td>{{tecnologia.qtdeProcessando}}</td>
                 <td>{{tecnologia.total}}</td>
-                <td>{{tecnologia.dedicados}}</td>
-                <td>{{tecnologia.pvAtivos}}</td>
+                <td>{{tecnologia.qtdeDedicado}}</td>
+                <td>{{tecnologia.qtdeVeiculo}}</td>
             </tr>
         </tbody>
-
 
         <ng-template #naoEncontrado>
             <tr>

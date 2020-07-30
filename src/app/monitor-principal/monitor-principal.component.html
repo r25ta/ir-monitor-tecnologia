@@ -1,7 +1,7 @@
 <app-monitor-navbar [filtroProvedor]="provedorFiltro" (mudouValor)="onMudouValor($event)"></app-monitor-navbar>
 <mat-grid-list cols="4" rowHeight="90px">
     <mat-grid-tile colspan="2" rowspan="1">
-        <div class="form-check" style="font-size: small;   text-align: left; width: 99%">
+        <div class="form-check" style="font-size: small;   text-align: left; width: 100%">
             <div style="margin-top: 10px;">
                 <mat-slide-toggle color="primary" [(ngModel)]="chkAlertaSonoro" (change)="getAlertaSonoro($event)">
                     <span *ngIf="chkAlertaSonoro; else desligarAlertaSonoro">
@@ -50,7 +50,7 @@
         </div>
     </mat-grid-tile>
     <mat-grid-tile colspan="2" rowspan="1">
-        <div style=" display: inline-block; text-align: right; width: 97%">
+        <div style=" display: inline-block; text-align: right; width: 96%">
             <div style="margin-top: 0px;">
                 <a mat-mini-fab color="primary" routerLink="." title="Ver Legenda" (click)="openLegenda()">
                     <mat-icon title="Ver Legenda">legend_toggle</mat-icon>
@@ -60,7 +60,7 @@
                 <span>
                   Ultima atualização:
                 </span>
-                <span style="font-weight: bold; font-style: oblique; color:blue;">DD/MM/YYYY HH24:MI:SS</span>
+                <span style="font-weight: bold; font-style: oblique; color:blue;">{{ultimaAtualizacao}}</span>
             </div>
         </div>
     </mat-grid-tile>

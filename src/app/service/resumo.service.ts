@@ -1,29 +1,31 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpErrorResponse, HttpHeaders} from '@angular/common/http';
+import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { retry, catchError } from 'rxjs/operators';
-import { TecnologiaModel } from '../model/tecnologia-model';
+import { ResumoModel } from '../model/resumo-model';
 
 @Injectable({
   providedIn: 'root'
 })
-export class MonitorService {
+export class ResumoService {
 
-  url = "http://localhost:3000/tecnologias";
+  url = "http://localhost:3000/resumo";
 
-  //Injetando HttpClient
-  constructor(private httpClient: HttpClient) { }
+  constructor(private httpClient: HttpClient) {
+  }
 
-  //headers
+    //headers
   httpOptions = {
     headers: new HttpHeaders({'Content-Type': 'application-json'})
   }
 
-  getTecnologias() : Observable<Array<TecnologiaModel>>{
-    return this.httpClient.get<Array<TecnologiaModel>>(this.url).pipe(
+  getResumoTecnologias() : Observable<ResumoModel>{
+    return this.httpClient.get<ResumoModel>(this.url)
+    .pipe(
       retry(2),
       catchError(this.handleError)
     );
+
   }
 
   handleError(error:HttpErrorResponse){
@@ -36,4 +38,5 @@ export class MonitorService {
     console.log(errorMessage);
     return throwError(errorMessage);
   }
+
 }

@@ -13,6 +13,7 @@ export class MonitorPrincipalComponent implements OnInit {
   chkAlertaSonoro= true;
   chkAtualizarMonitor = true;
   chkExibeIndicador = true;
+  ultimaAtualizacao = "";
 
   @Input() provedorFiltro: string;
 
@@ -28,7 +29,7 @@ export class MonitorPrincipalComponent implements OnInit {
 
     setTimeout(() => { this.refresh();
 
-    }, 15000);
+    }, 5000);
     this.getAtributosSessionStorage();
 
   }
@@ -61,8 +62,8 @@ export class MonitorPrincipalComponent implements OnInit {
 //    console.log("Variavel AlertaSonora =>" + this.chkAlertaSonoro);
 //    console.log("AtualizarMonitor =>" + sessionStorage.getItem("atualizarMonitorStorage"));
 //    console.log("Variavel AtualizarMonitor =>" + this.chkAtualizarMonitor);
-    console.log("exibeIndicadorStorage =>" + sessionStorage.getItem("exibeIndicadorStorage"));
-    console.log("Variavel exibeIndicadorStorage =>" + this.chkExibeIndicador);
+//    console.log("exibeIndicadorStorage =>" + sessionStorage.getItem("exibeIndicadorStorage"));
+//    console.log("Variavel exibeIndicadorStorage =>" + this.chkExibeIndicador);
 
 
   }
@@ -77,10 +78,15 @@ export class MonitorPrincipalComponent implements OnInit {
 
   }
 
+  getUltimaAtualizacao(){
+    return (new Date()).toLocaleString('pt-BR').slice(0,20);
+  }
+
   getAtualizarMonitor(event){
     this.chkAtualizarMonitor = event.checked;
     if(this.chkAtualizarMonitor){
       window.sessionStorage.setItem("atualizarMonitorStorage","checked");
+      console.log("passei...");
       this.refresh();
 
     } else{
@@ -88,8 +94,6 @@ export class MonitorPrincipalComponent implements OnInit {
 
     }
     //console.log(window.sessionStorage.getItem("atualizarMonitor"));
-
-
   }
 
   getAlertaSonoro(event){

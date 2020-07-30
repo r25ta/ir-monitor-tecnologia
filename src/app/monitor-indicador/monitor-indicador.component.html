@@ -1,28 +1,33 @@
-<div class="row" id="indicadores" style="margin-top: 20px;">
+<div class="row" id="indicadores" *ngIf="resumo!=null; else naoEncontrado" style="margin-top: 20px; width: 100%;">
 
     <div class="col-3 text-center">
-        <img src="//placehold.it/150/98FB98/fff&text=1000" class="center-block img-fluid rounded-circle" alt="total">
+        <img src="//placehold.it/150/98FB98/fff&text={{resumo.totalGeral}}" class="center-block img-fluid rounded-circle" alt="total">
         <br>
         <span style="font-size: small;">Eventos Processados</span>
 
 
     </div>
     <div class="col-3 text-center">
-        <img src="//placehold.it/150/B0E0E6/fff&text=2000" class="center-block img-fluid rounded-circle" alt="processando">
+        <img src="//placehold.it/150/B0E0E6/fff&text={{resumo.totalVeiculos}}" class="center-block img-fluid rounded-circle" alt="processando">
         <br>
         <span style="font-size: small;">Ve&#xed;culos Ativos</span>
 
     </div>
     <div class="col-3 text-center">
-        <img src="//placehold.it/150/C0C0C0/fff&text=3000" class="center-block img-responsive rounded-circle" alt="aProcessar">
+        <img src="//placehold.it/150/C0C0C0/fff&text={{resumo.totalDedicado}}" class="center-block img-responsive rounded-circle" alt="aProcessar">
         <br>
         <span style="font-size: small;">Ve&#xed;culos Dedicados</span>
 
     </div>
     <div class="col-3 text-center">
-        <img src="//placehold.it/150/FFDEAD/fff&text=4000" class="center-block img-responsive rounded-circle" alt="processado">
+        <img src="//placehold.it/150/FFDEAD/fff&text={{resumo.totalPvAtivo}}" class="center-block img-responsive rounded-circle" alt="processado">
         <br>
         <span style="font-size: small;">Ve&#xed;culos com PV. Ativo</span>
     </div>
 </div>
+<ng-template #naoEncontrado>
+    <div class="alert alert-warning" role="alert">
+        <span>Não foi possivel carregar os indicadores.</span>
+    </div>
+</ng-template>
 <br>
