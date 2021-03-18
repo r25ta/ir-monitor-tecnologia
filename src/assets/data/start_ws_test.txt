@@ -1,0 +1,5 @@
+/**************************************/
+COMANDO PARA INICIALIZAR A API TECNOLOGIAS DE TESTE
+/*****************************************/
+
+json-server --watch src\assets\data\monitor-tecnologia-db.json

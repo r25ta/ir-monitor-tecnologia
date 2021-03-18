@@ -15,6 +15,7 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
+import { SortDirective } from './directive/sort.directive';
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import { ToastrModule } from 'ngx-toastr';
     MonitorGridComponent,
     MonitorIndicadorComponent,
     MonitorLegendaComponent,
-    MonitorNavbarComponent
+    MonitorNavbarComponent,
+    SortDirective
   ],
   imports: [
     BrowserModule,
