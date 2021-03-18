@@ -1,3 +1,6 @@
+//@r25ta
+//CRIAÇÃO DE DIRETIVA PARA ORDENAÇÃO DE TABELA
+
 import { Directive, Input, Renderer2, ElementRef, HostListener } from '@angular/core';
 
 import { Sort } from '../util/sort';

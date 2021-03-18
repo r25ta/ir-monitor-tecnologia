@@ -4,6 +4,9 @@
             <tr>
                 <th  scope="col"></th>
                 <th  scope="col">Tecnologia</th>
+                <!--@r25ta
+                    IMPLEMENTAÇÃO DA DIRETIVA DO COMPONENTE GENERICO DE ORDENAÇÃO
+                -->
                 <th  [appSort] = "tecnologiaLista" data-order="asc" data-name="diffFormatado" scope="col">Lag</th>
                 <th  [appSort] = "tecnologiaLista" data-order="asc" data-name="dhrEvento"  scope="col">Terminal</th>
                 <th  [appSort] = "tecnologiaLista" data-order="desc" data-name="dhrProcFornecedor" scope="col">Operadora</th>
@@ -23,6 +26,10 @@
                 <td><img style="width: 15px; height: 15px;" src="../../assets/images/baseline_volume_up_black_18dp.png"></td>
                 <td>{{tecnologia.provedor}}</td>
                 <td>{{tecnologia.diffFormatado}}</td>
+
+                <!--@r25ta
+                    UTILIZAÇÃO DO DATE-PIPE PARA FORMATAÇÃO DAS DATAS NO GRID
+                -->
                 <td>{{tecnologia.dhrEvento | date :'dd/MM/yyyy hh:mm:ss'}}</td>
                 <td>{{tecnologia.dhrProcFornecedor | date : 'dd/MM/yyyy hh:mm:ss'}}</td>
                 <td>{{tecnologia.dhrProcPamcary | date : 'dd/MM/yyyy hh:mm:ss'}}</td>

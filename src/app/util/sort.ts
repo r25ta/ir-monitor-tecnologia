@@ -1,3 +1,6 @@
+/* @r25ta
+CLASSE QUE IMPLEMENTA O COMPONENTE GENERICO DE ORDENÇÃO
+*/
 export class Sort {
 
     private sortOrder = 1;
